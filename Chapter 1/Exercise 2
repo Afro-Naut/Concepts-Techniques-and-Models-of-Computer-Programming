@@ -1,3 +1,34 @@
+2. Calculating combinations. Section 1.3 defines the function Comb to calculate combinations. This function is not very efficient because it might require calculating very large factorials.The purpose of this exercise is to write a more efficient version
+of Comb.
+(a) As a first step, use the following alternative definition to write a more
+efficient function:
+
+n
+k
+
+=
+n × (n − 1)×· · ·×(n − k + 1)
+k × (k − 1)×· · ·×1
+Calculate the numerator and denominator separately and then divide them.
+Make sure that the result is 1 when k = 0.
+
+(b) As a second step, use the following identity:
+n
+k
+
+=
+
+n
+n − k
+
+to increase efficiency even more.That is, if k > n/2, then do the calculation
+with n − k instead of with k.
+
+
+--ANSWERS--
+
+(a) 
+
 declare
 fun {Fact N}
    if N==0 then 1 else N*{Fact N-1} end
