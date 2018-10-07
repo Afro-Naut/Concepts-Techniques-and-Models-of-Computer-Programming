@@ -1,0 +1,23 @@
+declare Comb2 Num Den Iter
+
+fun {Num N K}
+   fun {Iter N Count T}
+      if Count < T then N
+      else {Iter N*Count Count-1 T}
+      end
+   end
+   
+   {Iter N N-1 N-K+1}
+end
+
+fun {Den K}
+   {Fact K}
+end
+
+fun {Fact K}
+   if K == 1 then 1
+   else K * {Fact K - 1}
+   end
+end
+
+{Browse {Comb2 15 3}}

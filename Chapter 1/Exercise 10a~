@@ -1,0 +1,20 @@
+declare
+C={NewCell 0}
+thread
+   C:=1
+end
+thread
+   C:=2
+end
+
+{Browse @C}
+{Browse @C}
+{Browse @C}
+{Browse @C}
+{Browse @C}
+{Browse @C}
+{Browse @C}
+{Browse @C}
+{Browse @C}
+{Browse @C}
+{Browse @C}

@@ -1,0 +1,28 @@
+declare Comb2 Numerator Denominator Iterator Factorial
+fun {Comb2 N K}
+   if K == 0 then 1
+   else
+     {Numerator N K} div {Denominator K}   end
+end
+
+fun {Numerator N K}
+   local S=N-K+1 in
+      fun {Iterator N A}
+	 if N<S then A
+	 else {Iterator N-1 N*A}
+	 end
+      end
+      {Iterator N 1}
+   end
+end
+   
+fun {Factorial N}
+   if N==0 then 1 else N*{Factorial N-1} end
+end
+
+fun {Denominator K}
+   {Factorial K}
+end
+
+{Browse {Comb2 10 3}}
+{Browse 5}

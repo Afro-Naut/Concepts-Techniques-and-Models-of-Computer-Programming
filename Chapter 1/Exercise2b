@@ -1,0 +1,28 @@
+declare Comb3 Numerator Denominator Iterator Factorial
+fun {Comb3 N K}
+   if K == 0 then 1
+   elseif K > (N div 2) then {Comb3 N N-K}
+   else
+     {Numerator N K} div {Denominator K}   end
+end
+
+fun {Numerator N K}
+   local S=N-K+1 in
+      fun {Iterator N A}
+	 if N<S then A
+	 else {Iterator N-1 N*A}
+	 end
+      end
+      {Iterator N 1}
+   end
+end
+   
+fun {Factorial N}
+   if N==0 then 1 else N*{Factorial N-1} end
+end
+
+fun {Denominator K}
+   {Factorial K}
+end
+
+{Browse {Comb3 10 7}}

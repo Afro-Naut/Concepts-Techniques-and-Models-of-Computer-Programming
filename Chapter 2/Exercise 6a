@@ -1,0 +1,14 @@
+declare Test
+proc {Test X}
+   case X of f(a Y c) then {Browse 'case 1'}
+   else {Browse 'case 2'} end
+end
+
+declare X Y
+{Test f(X b Y)}
+declare X Y
+{Test f(a Y d)}
+declare X Y
+{Test f(X Y d)}
+declare X Y
+{Test f(a Y c)}

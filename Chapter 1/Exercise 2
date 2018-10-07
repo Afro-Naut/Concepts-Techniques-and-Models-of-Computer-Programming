@@ -1,0 +1,29 @@
+declare
+fun {Fact N}
+   if N==0 then 1 else N*{Fact N-1} end
+end
+
+declare Comb2 Num Den
+fun {Comb2 N K}
+   if K == 0 then 1
+   else
+      Num div Den
+   end
+end
+
+fun {Num N K}
+   local S = N in
+      local T = N - K + 1 in
+	 if S = T then N
+	 else N = N * S - 1
+	    S = S - 1
+	 end
+      end
+   end
+end
+
+fun {Den K}
+   {Fact K}
+end
+
+{Browse {Comb2 15 3}}

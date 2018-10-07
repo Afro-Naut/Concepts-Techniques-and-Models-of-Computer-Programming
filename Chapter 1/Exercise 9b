@@ -1,0 +1,43 @@
+declare FasterPascal Iter AddList ShiftLeft ShiftRight S
+
+S={NewStore}
+
+fun {FasterPascal N}
+   if N>{Size S} then
+      {Iter N}
+      {Get S N}
+   end
+end
+
+fun {Iter N}
+   for I in {Size S}..N do
+      if I==1 then {Put S  1 [1]}
+      else
+	 {Put S I {AddList {ShiftLeft {Get S I-1}} {ShiftRight {Get S I-1}}}}
+      end
+   end
+   {Get S  N}
+end
+
+
+fun {AddList L1 L2}
+   case L1 of H1|T1 then
+      case L2 of H2|T2 then
+	 H1+H2|{AddList T1 T2}
+      end
+   else nil  end
+end
+
+
+fun {ShiftLeft L}
+   case L of H|T then
+      H|{ShiftLeft T}
+   else [0] end
+end
+
+
+fun {ShiftRight L}
+   0|L
+end
+
+{Browse {FasterPascal 4}}      
